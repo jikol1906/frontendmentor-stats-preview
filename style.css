@@ -15,10 +15,119 @@
 
 html {
     font-size: 62.5%;
-    /* font-family: 'Lexend Deca', sans-serif; */
+    font-family: "Lexend Deca", sans-serif;
+    line-height: 1.6;
     /* font-family: 'Lexend Deca', sans-serif; */
 }
 
 body {
     background-color: var(--Very-dark-blue);
+    color: var(--White);
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+
+.container {
+    max-width: 114rem;
+    padding: 0 2rem;
+    margin: 0 auto;
+}
+
+.purple-text {
+    color: var(--Soft-violet);
+}
+
+.transparent-white-text {
+    color: var(--Slightly-transparent-white);
+}
+
+.mb-2 {
+    margin-bottom: 2rem;
+}
+
+.mb-1 {
+    margin-bottom: 1rem;
+}
+
+.card {
+    border-radius: 5px;
+    overflow: hidden;
+    background-color: var(--Dark-desaturated-blue);
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 20rem max-content;
+    grid-template-areas:
+        "img"
+        "content";
+}
+
+.card::before {
+    content: "";
+    grid-area: img;
+    background-image: linear-gradient(to bottom, rgba(82, 43, 106, 0.8),rgba(82, 43, 106, 0.8)),
+        url("images/image-header-mobile.jpg");
+    background-size: cover;
+}
+
+.card__content {
+    grid-area: content;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 4rem;
+}
+
+.card__header {
+    font-size: 3.5rem;
+}
+
+.card__text {
+    font-size: 1.3rem;
+}
+
+.card__stats {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.card__stat-number {
+    font-size: 3rem;
+}
+
+.card__stat-text {
+    text-transform: uppercase;
+}
+
+@media only screen and (min-width: 780px) {
+    .card__content {
+        text-align: left;
+    }
+
+    .card {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: auto;
+        grid-template-areas: "content img";
+    }
+
+    .card::before {
+        background-position: center;
+    }
+}
+
+@media only screen and (min-width: 572px) {
+    .card__stats {
+        flex-direction: row;
+        justify-content: space-around;
+    }
+
+    .card__stat:not(:last-child) {
+        margin-right: 6rem;
+    }
 }
